@@ -19,7 +19,11 @@
 [Xx]86/
 [Bb]uild/
 bld/
-[Bb]in/
+mergecsv/[Bb]in/
+bin/*.vshost.exe
+bin/*.config
+bin/*.manifest
+bin/*.csv
 [Oo]bj/
 
 # Visual Studio 2015 cache/options directory
