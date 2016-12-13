@@ -1,5 +1,5 @@
-KEY,English,Deutsch,Portugues
-HullSmallBlocks,Steel Blocks S,Stahlblöcke S,Bloco de ferro
+KEY,English,Deutsch
+HullSmallBlocks,Steel Blocks S,Stahlblöcke S
 HullThinSmallBlocks,Steel Blocks S (thin),Stahlblöcke S (dünn)
 HullFullSmall,Steel Block S,Stahlblock S
 HullThinSmall,Steel Block S,Stahlblock S
@@ -2198,16 +2198,16 @@ mnuCharacterTextureResQuarter,Quarter,Viertel
 bhiCharacterTextureResolution,"Set Texture Resolution of Character Models. Limited to ""Half"" if Video Memory is 2GB or to ""Quarter"" if Video Memory is 1GB.","Legt Texturauflösung des Spielermodells fest. Auf ""halb"" (bzw ""viertel"") limitiert wenn VRAM deiner Videokarte 2GB (bzw 1GB) beträgt. "
 wdwConstructorOld,Constructor (old - please replace),Konstruktor (alt - bitte austauschen)
 bswMerge,Connect To,Verbinden mit
-pswPlayerName,Player Name:,Spieler Name:,Nome do jogador
-pswGender,Gender:,Geschlecht:,Sexo:
-pswMainColor,Main Color:,Hauptfarbe:,Cor:
-pswExtraColor,Extra Color:,Zusatzfarbe:,Cor extra:
+pswPlayerName,Player Name:,Spieler Name:
+pswGender,Gender:,Geschlecht:
+pswMainColor,Main Color:,Hauptfarbe:
+pswExtraColor,Extra Color:,Zusatzfarbe:
 pswSkinColor,Skin Color:,Hautfarbe:
 pswHairColor,Hair Color:,Haarfarbe:
-pswMale,Male,Männlich,Homem
-pswFemale,Female,Weiblich,Mulher
-lblConnectToBA,Connect to {0},Mit {0} verbinden﻿,Conectar-se a {0}
-lblConnectToBANone,None,Keine,Nada
-igmBlockTooFarFromCenter,Too far away from the center of the structure,Zu weit vom Zentrum der Struktur entfernt,Longe demais do centro da estrutura
-igmConnectToBase,Point at your base and press '{0}' to activate 'Connect to Base' to build here,Zeige auf deine Bases und drücke '{0}' um 'Mit Basis verbinden' zu aktivieren um hier zu bauen,Mire na sua base e aperte '{0}' para ativar o 'Conectar a Base' para construir aqui
-vstFridges,Fridges:,Kühlschränke:;Geladeiras:
+pswMale,Male,Männlich
+pswFemale,Female,Weiblich
+lblConnectToBA,Connect to {0},Mit {0} verbinden﻿
+lblConnectToBANone,None,Keine
+igmBlockTooFarFromCenter,Too far away from the center of the structure,Zu weit vom Zentrum der Struktur entfernt
+igmConnectToBase,Point at your base and press '{0}' to activate 'Connect to Base' to build here,Zeige auf deine Bases und drücke '{0}' um 'Mit Basis verbinden' zu aktivieren um hier zu bauen
+vstFridges,Fridges:,Kühlschränke:
