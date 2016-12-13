@@ -41,157 +41,161 @@ namespace mergecsv
             
             if (Directory.Exists(pastaEmpyrion))
             {
-                Console.WriteLine(" Adicionando Portguês(BR) ");
-
-                string linha = string.Empty;
-                int count = 0;
-                
-                List<string> linhasCSV = new List<string>();
-                
-                Dictionary<int, string> dicLinhasArquivo = new Dictionary<int, string>();
-
-                Dictionary<int, string> dicEng = new Dictionary<int, string>();
-                Dictionary<int, string> dicPt = new Dictionary<int, string>();
-                Dictionary<int, string> dicAle = new Dictionary<int, string>();
-
-                #region Lista Inicial
-                StreamReader file = new StreamReader(arquivo_csv_original);
-                while ((linha = file.ReadLine()) != null)
+                if (File.Exists(arquivo_ptbr))
                 {
-                    dicLinhasArquivo.Add(count,linha);
-                    count++;
-                }
-                file.Close();
-                #endregion
+                    string linha = string.Empty;
+                    int count = 0;
+                
+                    List<string> linhasCSV = new List<string>();
+                
+                    Dictionary<int, string> dicLinhasArquivo = new Dictionary<int, string>();
 
-                #region Adiciona portugues
-                count = 0;
-                file = new StreamReader(arquivo_ptbr);
-                while ((linha = file.ReadLine()) != null)
-                {
-                    if (count > 0) {
-                        string[] valores = linha.Split(',');
+                    Dictionary<int, string> dicEng = new Dictionary<int, string>();
+                    Dictionary<int, string> dicPt = new Dictionary<int, string>();
+                    Dictionary<int, string> dicAle = new Dictionary<int, string>();
 
-                        var linhadados = dicLinhasArquivo.FirstOrDefault(x => x.Value.Contains(valores[0] + ","));
+                    #region Lista Inicial
+                    StreamReader file = new StreamReader(arquivo_csv_original);
+                    while ((linha = file.ReadLine()) != null)
+                    {
+                        dicLinhasArquivo.Add(count,linha);
+                        count++;
+                    }
+                    file.Close();
+                    #endregion
 
-                        int chaveLinha = linhadados.Key;
-                        if (chaveLinha > 0)
-                            dicLinhasArquivo[chaveLinha] = linhadados.Value + "," + valores[1].Replace("\"","");
+                    #region Adiciona portugues
+                    Console.WriteLine(" Adicionando Portguês(BR) ");
+                    count = 0;
+                    file = new StreamReader(arquivo_ptbr);
+                    while ((linha = file.ReadLine()) != null)
+                    {
+                        if (count > 0) {
+                            string[] valores = linha.Split(',');
+
+                            var linhadados = dicLinhasArquivo.FirstOrDefault(x => x.Value.Contains(valores[0] + ","));
+
+                            int chaveLinha = linhadados.Key;
+                            if (chaveLinha > 0)
+                                dicLinhasArquivo[chaveLinha] = linhadados.Value + "," + valores[1].Replace("\"","");
                         
-                    } else
-                    {
-                         dicLinhasArquivo[0] = dicLinhasArquivo[0] + @",Portugues" ;
-                    }
-                    count++;
-                }
-                file.Close();
-                #endregion
-
-                #region Adiciona o ingles onde não teve tradução
-
-                Dictionary<int, string> dicTemp = new Dictionary<int, string>();
-
-                foreach (var linhaDados in dicLinhasArquivo)
-                {
-                    int key = linhaDados.Key;
-                    string linhaCorreta = linhaDados.Value;
-                    if (key > 0){
-                        string[] colunas = linhaDados.Value.Split(',');
-                        if (colunas.Length < 4)
+                        } else
                         {
-                            linhaCorreta = linhaDados.Value + "," + colunas[1];
-                        } 
-                    }
-                    dicTemp[key] = linhaCorreta;
-                }
-
-                dicLinhasArquivo = dicTemp;
-
-                #endregion
-
-                #region Adiciona frances
-                count = 0;
-                file = new StreamReader(arquivo_fr);
-
-                Console.WriteLine(" Adicionando Francês(CA) ");
-
-                while ((linha = file.ReadLine()) != null)
-                {
-                    if (count > 0)
-                    {
-                        string[] valores = linha.Split(',');
-
-                        var linhadados = dicLinhasArquivo.FirstOrDefault(x => x.Value.Contains(valores[0] + ","));
-
-                        int chaveLinha = linhadados.Key;
-                        if (chaveLinha > 0)
-                            dicLinhasArquivo[chaveLinha] = linhadados.Value + "," + valores[1].Replace("\"", "");
-
-                    }
-                    else
-                    {
-                        dicLinhasArquivo[0] = dicLinhasArquivo[0] + @",French";
-                    }
-                    count++;
-                }
-                file.Close();
-                #endregion
-
-                #region Adiciona o ingles onde não teve tradução
-
-                dicTemp = new Dictionary<int, string>();
-
-                foreach (var linhaDados in dicLinhasArquivo)
-                {
-                    int key = linhaDados.Key;
-                    string linhaCorreta = linhaDados.Value;
-                    if (key > 0)
-                    {
-                        string[] colunas = linhaDados.Value.Split(',');
-                        if (colunas.Length < 4)
-                        {
-                            linhaCorreta = linhaDados.Value + "," + colunas[1];
+                             dicLinhasArquivo[0] = dicLinhasArquivo[0] + @",Portugues" ;
                         }
+                        count++;
                     }
-                    dicTemp[key] = linhaCorreta;
+                    file.Close();
+                    #endregion
+
+                    #region Adiciona o ingles onde não teve tradução
+
+                    Dictionary<int, string> dicTemp = new Dictionary<int, string>();
+
+                    foreach (var linhaDados in dicLinhasArquivo)
+                    {
+                        int key = linhaDados.Key;
+                        string linhaCorreta = linhaDados.Value;
+                        if (key > 0){
+                            string[] colunas = linhaDados.Value.Split(',');
+                            if (colunas.Length < 4)
+                            {
+                                linhaCorreta = linhaDados.Value + "," + colunas[1];
+                            } 
+                        }
+                        dicTemp[key] = linhaCorreta;
+                    }
+
+                    dicLinhasArquivo = dicTemp;
+
+                    #endregion
+
+                    if (File.Exists(arquivo_fr))
+                    {
+                        count = 0;
+                        file = new StreamReader(arquivo_fr);
+
+                        #region Adiciona frances
+                        Console.WriteLine(" Adicionando Francês(CA) ");
+
+                        while ((linha = file.ReadLine()) != null)
+                        {
+                            if (count > 0)
+                            {
+                                string[] valores = linha.Split(',');
+
+                                var linhadados = dicLinhasArquivo.FirstOrDefault(x => x.Value.Contains(valores[0] + ","));
+
+                                int chaveLinha = linhadados.Key;
+                                if (chaveLinha > 0)
+                                    dicLinhasArquivo[chaveLinha] = linhadados.Value + "," + valores[1].Replace("\"", "");
+
+                            }
+                            else
+                            {
+                                dicLinhasArquivo[0] = dicLinhasArquivo[0] + @",French";
+                            }
+                            count++;
+                        }
+                        file.Close();
+                        #endregion
+
+                        #region Adiciona o ingles onde não teve tradução
+                        dicTemp = new Dictionary<int, string>();
+
+                        foreach (var linhaDados in dicLinhasArquivo)
+                        {
+                            int key = linhaDados.Key;
+                            string linhaCorreta = linhaDados.Value;
+                            if (key > 0)
+                            {
+                                string[] colunas = linhaDados.Value.Split(',');
+                                if (colunas.Length < 4)
+                                {
+                                    linhaCorreta = linhaDados.Value + "," + colunas[1];
+                                }
+                            }
+                            dicTemp[key] = linhaCorreta;
+                        }
+
+                        dicLinhasArquivo = dicTemp;
+                        #endregion
+
+                        #region Backup do localization original
+
+                        string arquivoBackup = pastaEmpyrion + @"\" + arquivo_csv_destino+ ".BAK";
+                        string arquivoDestino = pastaEmpyrion + @"\" + arquivo_csv_destino;
+
+                        Console.WriteLine(" Realizando backup do arquivo original ");
+
+                        if (File.Exists(arquivoBackup)){
+                            File.Delete(arquivoBackup + ".BAK");
+                        }
+
+                        File.Copy(arquivoDestino, arquivoBackup, true);
+
+                        #endregion
+                        
+                        using (StreamWriter csvNovo = new StreamWriter(arquivoDestino))
+                            foreach (var entry in dicLinhasArquivo)
+                                csvNovo.WriteLine("{0}", entry.Value);
+                        
+                        Console.WriteLine("Merge finished");
+                    }else {
+                    Console.WriteLine("Arquivo não encontrado "+arquivo_fr);
+                    }
+
+                } else {
+                    Console.WriteLine("Arquivo não encontrado "+arquivo_ptbr);
                 }
-
-                dicLinhasArquivo = dicTemp;
-
-
-                #endregion
-
-                #region Backup do localization original
-
-                string arquivoBackup = pastaEmpyrion + @"\" + arquivo_csv_destino;
-                string arquivoDestino = pastaEmpyrion + @"\" + arquivo_csv_destino;
-
-                Console.WriteLine(" Realizando backup do arquivo original ");
-
-                if (File.Exists(arquivo_csv_destino+ ".BAK")){
-                    File.Delete(arquivo_csv_destino + ".BAK");
-                }
-
-                File.Copy(arquivoDestino, arquivoBackup, true);
-
-                #endregion
-
-
-                using (StreamWriter csvNovo = new StreamWriter(arquivoDestino))
-                    foreach (var entry in dicLinhasArquivo)
-                        csvNovo.WriteLine("{0}", entry.Value);
-
-
-                Console.WriteLine("Merge finished");
-                Console.WriteLine("#################################");
 
             }
             else
             {
                 Console.WriteLine("Pasta de destino "+pastaEmpyrion+" não existe.");
             }
-
-
+            
+            Console.WriteLine("#################################");
 
         }
     }
