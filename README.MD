@@ -13,3 +13,5 @@ Abra o prompt e digite: mergecsv c:\minhapasta
 A ferramenta vai fazer um backup do arquivo antes de rodar.
 
 Work in progress
+
+Added GetBadges integration
