@@ -1,3 +1,5 @@
+[![GetBadges Game](https://dipievil-empyriontranslator.getbadges.io/shield/company/dipievil-empyriontranslator)](https://dipievil-empyriontranslator.getbadges.io/?ref=shield-game)
+
 Arquivo de tradução do jogo Empyrion: Galatic Survival
 
 Como instalar
