@@ -11,3 +11,5 @@ Caso você seu Empyrion não esteja na mesma pasta default (C:\Program Files (x8
 Abra o prompt e digite: mergecsv c:\minhapasta
 
 A ferramenta vai fazer um backup do arquivo antes de rodar.
+
+Work in progress
