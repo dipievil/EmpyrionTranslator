@@ -1,8 +1,9 @@
 
-PORTUGUESE/PT-BR
+*PORTUGUESE/PT-BR*
+
 Arquivo de tradução do jogo Empyrion: Galatic Survival
 
-Como instalar
+Como instalar?
 
 Execute o arquivo mergecsv.exe na pasta bin.
 
@@ -18,10 +19,11 @@ Nosso grupo de tradução está no site: https://empyrion.oneskyapp.com/admin/pr
 
 Qualquer um pode se cadastrar e ajudar na trdução.
 
-ENGLISH/EN-US
-Tranaslation filte for the game Empyrion: Galatic Survival
+*ENGLISH/EN-US*
 
-How to install
+Translation file for the game Empyrion: Galatic Survival
+
+How to install?
 
 Run the file mergecsv.exe in the bin folder.
 
